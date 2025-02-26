@@ -17,8 +17,6 @@ services:
       - "4000:4000" # Map the container port to the host, change the host port if necessary
     env_file:
       - .env # Load local .env file
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
   db:
     image: postgres
@@ -32,6 +30,8 @@ services:
       interval: 1s
       timeout: 5s
       retries: 10
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
